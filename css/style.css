@@ -1,0 +1,11 @@
+.pc article { 
+	margin: 0 auto; 
+	text-align: center;
+	opacity: 100;
+	transform: rotate(45deg);
+	overflow: hidden;
+}
+	.pc img {
+		width: 100%;
+		transform: rotate(-45deg);
+	}
