@@ -29,23 +29,24 @@ $.getJSON("https://api.flickr.com/services/rest/?method=flickr.galleries.getPhot
 
 	if (data.stat != 1) {
 		for(i=0; i <= numImg-1; i++) {
-	    	var imge = $("<img>");
-	    	var link = $("<a/>").append(imge).attr("title", "loader")
-	    				.attr("href", "#" );
-			var article = $("<article class='col-lg-3 col-md-6 col-sm-6 col-xs-12'/>").append(link);
+	    	var loader = $("<i class='fa fa-cog fa-spin fa-3x fa-fw'></i>");
+	    	var article = $("<article class='col-lg-3 col-md-6 col-sm-6 col-xs-12'/>").append(loader);
 			$(elemPrint).append(article)
     	}
 	}
-/*
-    
+
     for(i=0; i <= numImg-1; i++) {
     	var thisDate = data.photos.photo[i];
-    	var imge = $("<img>").attr("src", "https://farm"+ thisDate.farm +".staticflickr.com/"+ thisDate.server +"/"+ thisDate.id +"_"+ thisDate.secret +".jpg");
-    	var link = $("<a/>").append(imge).attr("title", thisDate.title)
-    				.attr("href", "https://www.flickr.com/photos/"+ thisDate.owner +"/"+ thisDate.id );
-		var article = $("<article class='col-lg-3 col-md-6 col-sm-6 col-xs-12'/>").append(link);
-		$(elemPrint).append(article)
-    }*/
+    	var selecArg = $(".pc article");
+
+		$(selecArg[i]).find(".fa-cog").remove();
+		var imge = $("<img>").attr("src", "https://farm"+ thisDate.farm +".staticflickr.com/"+ thisDate.server +"/"+ thisDate.id +"_"+ thisDate.secret +".jpg");
+		var link = $("<a/>").append(imge).attr("title", thisDate.title)
+				.attr("href", "https://www.flickr.com/photos/"+ thisDate.owner +"/"+ thisDate.id );
+		$(selecArg[i]).append(link);
+
+    }
+
 
 });
 
